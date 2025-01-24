@@ -1,13 +1,9 @@
 document.getElementById("send-request-button").addEventListener("click", function() {
 
-    let clickId = ""
-    clickId = new URLSearchParams(window.location.search).get("click_id");
+    const clickId = new URLSearchParams(window.location.search).get("click_id");
+    var postback = "https://demo-igaming.irev.com/backend/api/v3/goal-type-fire/14?hash=REPLACE"
+    postback = postback.replace("REPLACE", clickId);
+    fetch(postback)
+    console.log(postback)
 
-    fetch("https://example.com", { method: "GET" })
-      .then(function(response) {
-        console.log("GET request successful");
-      })
-      .catch(function(error) {
-        console.error("GET request failed:", error);
-      });
   });
